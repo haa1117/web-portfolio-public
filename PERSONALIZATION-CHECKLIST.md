@@ -5,7 +5,7 @@ Owner: Hassan Ali Alvi. Verified so far: GitHub (`haa1117`) and LinkedIn (`hassa
 ## Required before publication
 
 - [ ] **Deployment target (Vercel/Netlify/Cloudflare account, project and optional custom domain)** — the portfolio is not deployed yet and needs its own URL; set `NEXT_PUBLIC_SITE_URL` there so social previews resolve correctly.
-- [ ] **Professional contact email** — the contact section currently has no email or message form, so visitors can only reach you through LinkedIn.
+- [ ] **Set the three `NEXT_PUBLIC_EMAILJS_*` environment variables on the new deployment** — they live in the git-ignored `.env.local`, so the contact form falls back to opening the visitor's mail app until they are set.
 
 ## Recommended
 
@@ -19,5 +19,5 @@ Owner: Hassan Ali Alvi. Verified so far: GitHub (`haa1117`) and LinkedIn (`hassa
 
 - [ ] **Availability status wording** — the contact section says "Open to project enquiries and collaborations"; adjust if that is not accurate.
 - [ ] **Location** — only add if you want it public.
-- [ ] **Contact form service (e.g. EmailJS or Formspree)** — only needed if you want an on-site message form once an email is chosen.
+- [ ] **EmailJS template recipient** — the shared EmailJS template decides where form messages are delivered, so confirm it sends to hassan@futurewatch.co.
 - [ ] **Other profiles (X, Medium, Dribbble, etc.)** — only if you have them and want them listed.

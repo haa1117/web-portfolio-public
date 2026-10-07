@@ -18,6 +18,7 @@ export const site = {
     "Hassan Ali Alvi is a software developer building full-stack web, mobile, Android TV, AI-enabled and custom business applications.",
     "The portfolio spans Flutter apps with public Google Play listings, Android TV experiences, full-stack web platforms, AI and data tools, and business systems such as ledgers, dashboards and ticketing.",
   ],
+  email: "hassan@futurewatch.co",
   sites: {
     futurewatch: "https://futurewatch.co",
     fwglobal: "https://fwglobal.co",

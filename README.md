@@ -14,7 +14,7 @@ npm run build && npm start
 
 | What | Where |
 | --- | --- |
-| Name, role, bio, social links | `src/lib/site.ts` |
+| Name, role, bio, email, social links | `src/lib/site.ts` |
 | 45 projects (5 featured + 40 in the library): copy, links, status | `src/data/projects.json` (types in `src/lib/data.ts`) |
 | Project images (Play Store graphics, repo screenshots, optimised WebP) | `public/projects/<repo-slug>/` |
 | Website screenshots | `public/sites/` |
@@ -32,6 +32,10 @@ scroll progress bar · reduced-motion support.
 - Add or edit an entry in `src/data/projects.json`: `group` is one of `apps | games | ai | biz | web`, `status` one of `store | live | build | unreleased`, and `flagship: true` moves it to the Featured section.
 - Every GitHub link points to `https://github.com/haa1117/<repo>-public`; Play Store links are only set where a real listing exists.
 - Images are optimised WebP in `public/projects/<slug>/` (`icon`, `hero`, phone shots `p1…`, screenshots `s1…`).
+
+## Contact form
+
+The contact form uses EmailJS. Copy `.env.example` to `.env.local` and fill the three `NEXT_PUBLIC_EMAILJS_*` values (also set them on the hosting platform). Without them the form opens the visitor's mail app instead.
 
 ## Deploy
 

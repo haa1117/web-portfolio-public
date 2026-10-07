@@ -23,6 +23,10 @@ export function CommandPalette({ open, setOpen }: { open: boolean; setOpen: (v: 
       { id: "fw", label: "Visit futurewatch.co", hint: "external", icon: "link", run: () => window.open(site.sites.futurewatch, "_blank") },
       { id: "fwg", label: "Visit fwglobal.co", hint: "external", icon: "link", run: () => window.open(site.sites.fwglobal, "_blank") },
       { id: "hik", label: "Visit hiktextiles.com", hint: "external", icon: "link", run: () => window.open(site.sites.hik, "_blank") },
+      {
+        id: "mail", label: "Copy email address", hint: site.email, icon: "copy",
+        run: () => { navigator.clipboard?.writeText(site.email); toast("Email copied to clipboard"); },
+      },
     ],
     [],
   );
