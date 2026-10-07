@@ -4,11 +4,11 @@ Owner: Hassan Ali Alvi. Verified and in use: GitHub (`haa1117`), LinkedIn (`hass
 
 ## Required before publication
 
-- [ ] **Deployment target (Vercel/Netlify/Cloudflare account, project and optional custom domain)** — the portfolio is not deployed yet and needs its own URL; set `NEXT_PUBLIC_SITE_URL` there so social previews resolve correctly.
-- [ ] **Set the three `NEXT_PUBLIC_EMAILJS_*` environment variables on the new deployment** — they live in the git-ignored `.env.local`, so the contact form falls back to opening the visitor's mail app until they are set.
+None. The site is deployed at https://hassan-ali-alvi.vercel.app with the EmailJS and `NEXT_PUBLIC_SITE_URL` variables set in the Vercel project.
 
 ## Recommended
 
+- [ ] **Custom domain** — optional, add it in the Vercel project and update `NEXT_PUBLIC_SITE_URL`.
 - [ ] **EmailJS template recipient** — the shared EmailJS template decides where form messages are delivered, so confirm it sends to hassanalialvi1117@gmail.com.
 - [ ] **Job titles for each role** — the CV gives none, so the Experience section shows company, dates and focus only.
 - [ ] **Upwork profile URL** — the Services section mentions freelance availability but links nowhere.

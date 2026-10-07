@@ -9,12 +9,15 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jb", display
 
 const description = `${site.name} — Full-Stack Software Developer and BS Data Science graduate (GIKI). Android and Android TV apps, full-stack web, AI/ML and business software, with apps live on Google Play.`;
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: `${site.name} — ${site.role}`,
   description,
   authors: [{ name: site.name }],
   keywords: ["Hassan Ali Alvi", "portfolio", "full-stack developer", "mobile app developer", "Android developer", "Flutter", "React", "Next.js", "Android TV", "data science", "machine learning", "GIKI"],
-  openGraph: { title: `${site.name} — ${site.role}`, description, type: "website", siteName: `${site.name} Portfolio` },
+  openGraph: { title: `${site.name} — ${site.role}`, description, type: "website", url: siteUrl, siteName: `${site.name} Portfolio` },
   twitter: { card: "summary_large_image", title: `${site.name} — ${site.role}`, description },
 };
 
