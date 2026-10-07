@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #04050a;
+  --color-ink: #070912;
+  --color-panel: #0b0e1a;
+  --color-line: rgba(148, 163, 255, 0.12);
+  --color-neon: #22d3ee;
+  --color-violet: #8b5cf6;
+  --color-magenta: #f0abfc;
+  --color-lime: #a3e635;
+  --font-display: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jb), ui-monospace, SFMono-Regular, monospace;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-spin-reverse: spin-reverse 28s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-blink: blink 1s steps(2, start) infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  --animate-aurora: aurora 18s ease-in-out infinite alternate;
+  --animate-scan: scan 6s linear infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px) }
+    to { opacity: 1; transform: none }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-14px) }
+  }
+  @keyframes spin-reverse {
+    to { transform: rotate(-360deg) }
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%) }
+  }
+  @keyframes blink {
+    to { opacity: 0 }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 0.9 }
+    80%, 100% { transform: scale(2.4); opacity: 0 }
+  }
+  @keyframes aurora {
+    0% { transform: translate3d(0, 0, 0) scale(1) }
+    50% { transform: translate3d(6%, -4%, 0) scale(1.15) }
+    100% { transform: translate3d(-5%, 5%, 0) scale(0.95) }
+  }
+  @keyframes scan {
+    0% { transform: translateY(-100%) }
+    100% { transform: translateY(100vh) }
+  }
+  @keyframes shimmer {
+    to { background-position: 200% center }
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  background: var(--color-void);
+}
+
+body {
+  background: var(--color-void);
+  color: #e6e9f5;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Scale the whole rem-based design up on big monitors so proportions stay identical. */
+@media (min-width: 1700px) { html { font-size: 17px; } }
+@media (min-width: 1920px) { html { font-size: 18px; } }
+@media (min-width: 2300px) { html { font-size: 21px; } }
+@media (min-width: 3000px) { html { font-size: 28px; } }
+@media (min-width: 4400px) { html { font-size: 36px; } }
+/* Very narrow screens (Galaxy Z Fold cover display, ~280px). */
+@media (max-width: 340px) { html { font-size: 14.5px; } }
+
+::selection {
+  background: rgba(34, 211, 238, 0.28);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px }
+::-webkit-scrollbar-track { background: var(--color-void) }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-neon), var(--color-violet));
+  border-radius: 8px;
+  border: 2px solid var(--color-void);
+}
+
+/* ---------- reusable surfaces ---------- */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(148, 163, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #67e8f9 0%, #a78bfa 45%, #f0abfc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-anim {
+  background: linear-gradient(100deg, #22d3ee, #8b5cf6, #f0abfc, #22d3ee);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* rotating conic border — "border beam" */
+.beam {
+  position: relative;
+  isolation: isolate;
+}
+.beam::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle), transparent 0 70%, #22d3ee 82%, #8b5cf6 92%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: beam-spin 5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 1;
+}
+.beam:hover::before,
+.beam.beam-on::before {
+  opacity: 1;
+}
+@keyframes beam-spin {
+  to { --angle: 360deg }
+}
+
+/* subtle blueprint grid */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.mask-fade-y {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+}
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* film grain */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* glitch on hover */
+.glitch {
+  position: relative;
+}
+.glitch:hover::before,
+.glitch:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.glitch:hover::before {
+  color: #22d3ee;
+  transform: translate(-2px, 0);
+  clip-path: inset(0 0 55% 0);
+  animation: glitch-a 0.5s steps(2) infinite;
+}
+.glitch:hover::after {
+  color: #f0abfc;
+  transform: translate(2px, 0);
+  clip-path: inset(55% 0 0 0);
+  animation: glitch-b 0.5s steps(2) infinite;
+}
+@keyframes glitch-a {
+  0% { transform: translate(-2px, 1px) }
+  50% { transform: translate(2px, -1px) }
+  100% { transform: translate(-1px, 0) }
+}
+@keyframes glitch-b {
+  0% { transform: translate(2px, -1px) }
+  50% { transform: translate(-2px, 1px) }
+  100% { transform: translate(1px, 0) }
+}
+
+/* custom cursor only on fine pointers */
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor, html.has-cursor a, html.has-cursor button { cursor: none }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

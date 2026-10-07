@@ -1,0 +1,2649 @@
+{
+ "groups": {
+  "apps": "Published Apps",
+  "games": "Games & Entertainment",
+  "ai": "AI & Data",
+  "biz": "Business & Systems",
+  "web": "Web Platforms"
+ },
+ "projects": [
+  {
+   "id": "kalendra-website",
+   "name": "Kalendra Website",
+   "group": "web",
+   "status": "live",
+   "caveat": null,
+   "tagline": "The public site and early-access waitlist for Kalendra, built with hand-made motion.",
+   "summary": "The marketing site behind getkalendra.com: a single-page React app that explains Kalendra, an AI scheduling assistant, through scripted SVG, CSS and GSAP animation instead of video, and collects early-access sign-ups through a form. It has no router and no backend of its own, and the Privacy Policy and Terms open as in-page dialogs driven by the URL hash.",
+   "platforms": [
+    "Desktop web",
+    "Mobile web"
+   ],
+   "stack": [
+    "React 18",
+    "Vite 5",
+    "GSAP ScrollTrigger",
+    "EmailJS",
+    "Plain CSS",
+    "SVG / animateTransform",
+    "CSS keyframes",
+    "requestAnimationFrame",
+    "Inter (Google Fonts)"
+   ],
+   "features": [
+    "Animated chat demo: bubbles grow from a waveform and type in sequence on a 35-second loop",
+    "Capabilities diagram: logo expands and draws curved connectors to Google, Outlook and Zoom icons",
+    "Glass-lens ticker over scrolling job titles using an SVG feTurbulence/feDisplacementMap filter",
+    "Looping SVG wave-logo hero with continuously scrolling suggestion chips",
+    "Early-access waitlist form (email, role, Android/iOS) sent via EmailJS from the browser"
+   ],
+   "highlights": [
+    "All motion is code (SVG, CSS keyframes, rAF, GSAP): no video or Lottie files; about 334 kB JS (114 kB gzipped) and 33 kB CSS in a clean production build",
+    "Distortion lens built from an SVG turbulence + displacement filter, with sizes switched at a 768 px breakpoint",
+    "Capabilities connectors are parametric Bezier paths (width, segment lengths, control offsets, scale) so they can be re-tuned without redrawing artwork",
+    "Serverless-style form: EmailJS identifiers come from build-time env vars, the form refuses to submit if they are missing and maps network errors to readable messages"
+   ],
+   "flagship": true,
+   "links": {
+    "github": "https://github.com/haa1117/kalendra-website-public",
+    "live": "https://getkalendra.com/"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/kalendra-website/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/kalendra-website/s1.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/kalendra-website/s2.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/kalendra-website/s3.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/kalendra-website/s4.webp",
+      "w": 1000,
+      "h": 625
+     }
+    ]
+   },
+   "relation": "Companion to Kalendra AI, the mobile app. Two separate repositories: this one is the website only."
+  },
+  {
+   "id": "kalendra-ai",
+   "name": "Kalendra AI",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "A calendar assistant that unifies Google and Outlook calendars and proposes changes you confirm.",
+   "summary": "A Flutter app that connects Google and Outlook calendars over OAuth and shows them in one day, week, month and schedule view with overlap-aware layout. A typed or voice assistant turns natural-language requests into proposed event and task actions, and nothing is written to a calendar until the person confirms. It is positioned as a scheduling helper, not a general autonomous agent.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart 3",
+    "Firebase Auth",
+    "Google sign-in",
+    "Apple sign-in",
+    "OAuth with PKCE",
+    "Server-sent events",
+    "Firebase Analytics",
+    "Crashlytics",
+    "Firebase Remote Config"
+   ],
+   "features": [
+    "Unified day, week, month and schedule views across multiple Google and Outlook accounts",
+    "Assistant home with typed or voice turns, summary cards and proposed actions",
+    "Partial vs full overlap styling with badges, side-by-side day columns and a picker sheet",
+    "Preferred and off-hours windows that clip availability suggestions; per-calendar colour and name",
+    "Local daily brief notification at a chosen time"
+   ],
+   "highlights": [
+    "Hard confirmation boundary: create/update pre-fill the normal event editor, deletes and some task actions use an explicit confirm sheet, execution goes through a separate backend path with a confirmed flag",
+    "Assistant turns stream over server-sent events; client keeps history in memory and resends it; voice recordings are uploaded then deleted locally",
+    "One merged multi-account event list for a sliding month window feeds all calendar tabs through a shared event model",
+    "Conflict clusters distinguish partial overlaps (orange) from exact same-slot overlaps (red); widget tests cover conflict layout and the confirm sheet"
+   ],
+   "flagship": true,
+   "links": {
+    "github": "https://github.com/haa1117/kalendra-ai-public",
+    "play": "https://play.google.com/store/apps/details?id=com.calendai.calendai",
+    "appStore": "https://apps.apple.com/pk/app/kalendra-ai-calendar-assistant/id6754331667"
+   },
+   "media": {
+    "icon": "/projects/kalendra-ai/icon.webp",
+    "hero": {
+     "src": "/projects/kalendra-ai/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/kalendra-ai/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/kalendra-ai/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/kalendra-ai/p3.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/kalendra-ai/p4.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/kalendra-ai/p5.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   },
+   "relation": "The mobile app for Kalendra. Kalendra Website is a separate project: the public site and waitlist."
+  },
+  {
+   "id": "hearthboard",
+   "name": "Hearthboard",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "A split-flap social board for very short messages, in the feed and on your home screen.",
+   "summary": "Hearthboard (listed on Google Play as Hearth) lets friends send short uppercase board messages that appear in a feed and on a native home-screen widget styled like a split-flap display. It adds friend requests, reactions, board themes and an optional partner board. An Android TV fork pairs with the phone by QR code for ambient living-room display, but that TV build has not been released.",
+   "platforms": [
+    "Android",
+    "iOS (same codebase)",
+    "Android TV (unreleased)"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart 3",
+    "Kotlin",
+    "Swift",
+    "Provider",
+    "Firebase Auth",
+    "Firestore",
+    "Firebase Cloud Messaging",
+    "Cloud Functions (Node)",
+    "Play Billing / StoreKit (in_app_purchase)"
+   ],
+   "features": [
+    "Split-flap styled message feed with reactions and archived boards",
+    "Native home-screen widgets showing pre-rendered feed-card bitmaps (light/dark)",
+    "Friend requests, search, block list, optional partner board",
+    "Board themes (some marked PRO) and tiered subscriptions (basic / pro / max)",
+    "QR pairing of phone to Android TV (TV app unreleased)"
+   ],
+   "highlights": [
+    "Launcher widgets via off-screen renders: the same card is rendered at fixed sizes (distinct iOS aspect ratio), light/dark previews uploaded, URLs stored per message and shown by native widget code",
+    "Background post queue so compose stays responsive while multi-friend writes and uploads complete",
+    "QR TV pairing: TV publishes a short code as QR, signed-in phone claims it, cloud pairing records subscribed by both sides",
+    "Serverless Firestore trigger reads recipient preference maps before sending FCM"
+   ],
+   "flagship": true,
+   "links": {
+    "github": "https://github.com/haa1117/hearthboard-public",
+    "play": "https://play.google.com/store/apps/details?id=com.hearthboard.hearthboard"
+   },
+   "media": {
+    "icon": "/projects/hearthboard/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/hearthboard/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/hearthboard/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/hearthboard/p3.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/hearthboard/p4.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/hearthboard/p5.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   },
+   "relation": null
+  },
+  {
+   "id": "al-noor",
+   "name": "Al Noor",
+   "group": "web",
+   "status": "live",
+   "caveat": null,
+   "tagline": "A web ledger that replaced a construction company's Excel workbook (Construction Ledger ERP).",
+   "summary": "An accounting tool built around one Main Ledger of payments and receipts, with Head, Item and Merchant drill-downs and bank, cash and card accounts with running balances. Billed, paid and due are shown at every level. It uses JWT sign-in with a read-only viewer role and an audit log, and contains no AI or ML. Screenshots show fictional demo data.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "React 19",
+    "Vite",
+    "Tailwind CSS",
+    "TypeScript",
+    "Radix",
+    "react-hook-form",
+    "zod",
+    "Cloudflare Workers",
+    "Hono",
+    "Drizzle ORM"
+   ],
+   "features": [
+    "Main Ledger with search and filters (date range, site, head, item, merchant, account, direction, unpaid only, needs review), totals and CSV export",
+    "Heads > Items > Merchants sub-ledgers each showing billed, paid and due",
+    "Bank, cash and card accounts with opening balance and running-balance statement",
+    "Setup for sites, heads, items, merchants and accounts with active toggles",
+    "JWT sign-in with roles; VIEWER is read-only, audit log on changes"
+   ],
+   "highlights": [
+    "Integer money: amounts stored as integer minor units (paisa) and converted at the API boundary",
+    "Due is derived from billed and paid so it rolls up consistently across every sub-ledger",
+    "Server-side cross-field validation in the Worker (direction, amount, account rules)",
+    "Drill-down totals come from grouped SQL aggregates instead of per-row lookups"
+   ],
+   "flagship": true,
+   "links": {
+    "github": "https://github.com/haa1117/al-noor-public",
+    "live": "https://app-eight-brown-88.vercel.app/login"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/al-noor/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/al-noor/s1.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/al-noor/s2.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/al-noor/s3.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/al-noor/s4.webp",
+      "w": 1000,
+      "h": 625
+     }
+    ]
+   },
+   "relation": null
+  },
+  {
+   "id": "hik-textiles",
+   "name": "HIK Textiles",
+   "group": "web",
+   "status": "live",
+   "caveat": null,
+   "tagline": "The public company website for a Pakistan-based yarn manufacturer.",
+   "summary": "A five-page responsive React site for HIK Textiles with a full-screen video hero, scroll-triggered sections, and product, services and certification content. A validated contact form sends enquiries from the browser through EmailJS, so the site needs no backend of its own.",
+   "platforms": [
+    "Desktop web",
+    "Mobile web"
+   ],
+   "stack": [
+    "React 19",
+    "React Router 7",
+    "Tailwind CSS 3",
+    "Create React App",
+    "EmailJS"
+   ],
+   "features": [
+    "Five routes: Home, About, Services, Products and Get in Touch",
+    "Full-screen video hero with scroll-triggered sections",
+    "Four product lines, three service areas and certification badges",
+    "Validated enquiry form sent through EmailJS, no backend"
+   ],
+   "highlights": [],
+   "flagship": true,
+   "relation": null,
+   "links": {
+    "github": "https://github.com/haa1117/hik-textiles-public",
+    "live": "https://hiktextiles.com"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/hik-textiles/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/hik-textiles/s1.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/hik-textiles/s2.webp",
+      "w": 1000,
+      "h": 625
+     },
+     {
+      "src": "/projects/hik-textiles/s3.webp",
+      "w": 1000,
+      "h": 625
+     }
+    ]
+   }
+  },
+  {
+   "id": "2d-mario",
+   "name": "2D Mario",
+   "group": "games",
+   "status": "build",
+   "caveat": "Local desktop build with three levels; no saves or online play.",
+   "tagline": "Pirate-themed 2D platformer for desktop with world map, three levels, coins, stomping and menus.",
+   "summary": "A single-player side-scrolling platformer with a world map, three playable levels, scoring (coins, stomps, time bonus) and 1-3 stars per level. It runs locally on desktop with no network, and levels are authored in Tiled and loaded from CSV layers.",
+   "platforms": [
+    "Desktop"
+   ],
+   "stack": [
+    "Python",
+    "pygame",
+    "Tiled (CSV level layers)"
+   ],
+   "features": [
+    "Run, jump, collect coins and stomp patrolling enemies to reach the goal flag",
+    "World map with unlockable nodes, completion ticks and best score",
+    "Particles, screen shake, parallax backdrop and music/sound effects",
+    "Title, pause, level-complete and game-over screens"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/2d-mario-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/2d-mario/hero.webp",
+     "w": 1200,
+     "h": 704
+    },
+    "shots": [
+     {
+      "src": "/projects/2d-mario/s1.webp",
+      "w": 900,
+      "h": 528
+     },
+     {
+      "src": "/projects/2d-mario/s2.webp",
+      "w": 900,
+      "h": 528
+     },
+     {
+      "src": "/projects/2d-mario/s3.webp",
+      "w": 900,
+      "h": 528
+     }
+    ]
+   }
+  },
+  {
+   "id": "2d-turbo-racing",
+   "name": "2D Turbo Racing",
+   "group": "games",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Top-down 2D arcade racing game for Android, iOS and Android TV with garage, store and cloud-synced progress.",
+   "summary": "A landscape, lane-based arcade racing game with 10 themed tracks, 14 cars and four difficulty tiers, plus a garage, coin/gem economy, fuel, power-ups and 7-day daily rewards. It is engineered as two apps from one design: a touch/tilt Mobile app and a remote-controlled Android TV app.",
+   "platforms": [
+    "Android",
+    "iOS",
+    "Android TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "CustomPainter canvas rendering (no game engine)",
+    "Kotlin (Play Billing)",
+    "Swift (StoreKit)",
+    "Unity Ads",
+    "InMobi"
+   ],
+   "features": [
+    "10 themed tracks, 14 cars, four difficulty tiers",
+    "Garage, coin/gem economy, fuel, power-ups, daily rewards, limited-time offers",
+    "Mobile controls: on-screen buttons or gyro tilt; TV: remote/D-pad with focus handling",
+    "Cloud-synced progress via Firestore with local-first save",
+    "Hand-written canvas renderer with delta-time loop"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/2d-turbo-racing-public",
+    "play": "https://play.google.com/store/apps/details?id=co.futurewatch.turborg2d.racing",
+    "appStore": "https://apps.apple.com/pk/app/turbo-racing-arcade-car-game/id6764758733"
+   },
+   "media": {
+    "icon": "/projects/2d-turbo-racing/icon.webp",
+    "hero": {
+     "src": "/projects/2d-turbo-racing/hero.webp",
+     "w": 1280,
+     "h": 626
+    },
+    "shots": [
+     {
+      "src": "/projects/2d-turbo-racing/w1.webp",
+      "w": 1100,
+      "h": 619
+     },
+     {
+      "src": "/projects/2d-turbo-racing/w2.webp",
+      "w": 1100,
+      "h": 619
+     },
+     {
+      "src": "/projects/2d-turbo-racing/w3.webp",
+      "w": 1100,
+      "h": 619
+     }
+    ]
+   }
+  },
+  {
+   "id": "agro-scan",
+   "name": "AgroScan",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Reference implementation using colour-based analysis (no ML model, not a diagnosis) on seeded fictional data.",
+   "tagline": "Crop-health scanning web app: upload a canopy photo for a colour-health score, stress heatmap and next steps.",
+   "summary": "A reference implementation of a crop-scanning app that analyses uploaded canopy photos by pixel colour (HSV, Excess-Green, VARI) to produce a 0-100 health score, a stress heatmap and rule-based recommendations and alerts. It tracks farms and fields with trend charts, scan history and two-scan compare.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "FastAPI",
+    "SQLite",
+    "Pillow",
+    "NumPy",
+    "Vanilla JS",
+    "Chart.js"
+   ],
+   "features": [
+    "Image upload with real pixel analysis: green cover, yellowing, browning, ExG and VARI",
+    "Stress heatmap beside the original image",
+    "Per-field health trend charts, scan history, before/after compare, CSV export",
+    "Alerts and recommendations from transparent threshold rules",
+    "Built-in synthetic sample generator; responsive phone layout"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/agro-scan-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/agro-scan/hero.webp",
+     "w": 1400,
+     "h": 962
+    },
+    "shots": [
+     {
+      "src": "/projects/agro-scan/s1.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/agro-scan/s2.webp",
+      "w": 900,
+      "h": 597
+     },
+     {
+      "src": "/projects/agro-scan/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "ai-lms",
+   "name": "AI LMS",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Demo build on seeded fictional data; the LLM responses shown are scripted.",
+   "tagline": "Web LMS with role-based dashboards and AI tools grounded in course material: quizzes, flashcards, chat.",
+   "summary": "A learning management system where instructors and students get LLM-assisted tools based on the course's own documents: quiz and assignment generation with verification, lecture summaries, flashcards, practice questions and grounded lecture chat. It has admin, instructor and student roles (role is per course).",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Material UI",
+    "FastAPI",
+    "LangGraph",
+    "Supabase",
+    "Llama models"
+   ],
+   "features": [
+    "Role-aware dashboards: admin course management, instructor and student views",
+    "Course resource library with upload, download and delete by category",
+    "Instructor quiz/assignment generation from selected files with review and regeneration; PDF/notebook export",
+    "Student lecture summaries, flashcards, practice questions by difficulty, grounded lecture chat"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/ai-lms-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/ai-lms/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/ai-lms/s1.webp",
+      "w": 900,
+      "h": 741
+     },
+     {
+      "src": "/projects/ai-lms/s2.webp",
+      "w": 900,
+      "h": 742
+     },
+     {
+      "src": "/projects/ai-lms/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "ai-metrics-visualizer",
+   "name": "AI Metrics Visualizer",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Demo mode: all metrics are hard-coded illustrative values, not benchmark results.",
+   "tagline": "Streamlit dashboard showcasing AI model metrics with animated counters, dual-axis trends and model comparison.",
+   "summary": "A single-page Streamlit dashboard that presents AI model performance metrics through animated UI: counting KPI cards, progress bars, a dual-axis Plotly trend chart and a side-by-side model comparison. It is a marketing-style showcase of how to present static data as an engaging 'live' dashboard.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "Streamlit",
+    "Plotly",
+    "Pandas",
+    "NumPy",
+    "Custom CSS animations"
+   ],
+   "features": [
+    "Animated typing intro with gradient text",
+    "Animated KPI counters (fidelity, throughput, compression) and progress bars",
+    "Dual-axis Plotly trend chart over 60 days of synthetic data",
+    "Our-model vs industry-baseline comparison cards; dark glassmorphism UI"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/ai-metrics-visualizer-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/ai-metrics-visualizer/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/ai-metrics-visualizer/s1.webp",
+      "w": 701,
+      "h": 900
+     },
+     {
+      "src": "/projects/ai-metrics-visualizer/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/ai-metrics-visualizer/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "ai-voice-assistant",
+   "name": "AI Voice Assistant",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Concept on fictional data; intent matching is rule-based (not an LLM) and speech input/output did not run in the demo.",
+   "tagline": "Local clinic dashboard where staff query patients and appointments with typed or voice commands.",
+   "summary": "A single-page dashboard for clinic staff to look up patients and manage appointments using typed or spoken natural-language commands. Commands are interpreted by rule-based regex/NLTK intent matching (not an LLM) against a SQLite database, with an audit log of all commands.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "FastAPI",
+    "SQLite",
+    "NLTK",
+    "Bootstrap 5",
+    "Whisper (optional)",
+    "pyttsx3 (optional)",
+    "Docker"
+   ],
+   "features": [
+    "Voice and text commands such as 'Show last visit for Ahmed'",
+    "Rule-based intent and entity extraction (not an LLM)",
+    "Searchable patient directory with record modal; appointments table",
+    "Audit log of commands in voice_logs table; Dockerised deployment"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/ai-voice-assistant-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/ai-voice-assistant/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/ai-voice-assistant/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/ai-voice-assistant/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/ai-voice-assistant/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "animal-ringtone",
+   "name": "Animal Ringtones",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Animal and bird sound library and ringtone app with offline downloads, recordings and community feed.",
+   "summary": "A sound library for animal and bird sounds that doubles as a ringtone, alarm, notification and contact-tone picker (system sounds on Android; share-based alternative on iOS). Users can download sounds for offline playback, record their own and post to a moderated community feed.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Firebase",
+    "Cloudflare Workers",
+    "TypeScript",
+    "Kotlin"
+   ],
+   "features": [
+    "Seven sound categories with search, favourites, trending and a waveform player",
+    "Set as ringtone, alarm, notification or contact tone (Android only)",
+    "Offline downloads and play cache; background playback controls",
+    "Record and share sounds; community feed with report/block and moderation queue",
+    "15 UI languages incl. Arabic and Urdu; premium subscription or lifetime purchase"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/animal-ringtone-public",
+    "play": "https://play.google.com/store/apps/details?id=com.animalringtones.sounds.ringtone"
+   },
+   "media": {
+    "icon": "/projects/animal-ringtone/icon.webp",
+    "hero": {
+     "src": "/projects/animal-ringtone/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/animal-ringtone/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/animal-ringtone/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/animal-ringtone/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "chatbotx",
+   "name": "ChatbotX",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Early prototype: replies come from keyword rules (no LLM); landing-page figures are placeholder text.",
+   "tagline": "Prototype education-support assistant: responsive landing page and real-time chat UI with quick replies.",
+   "summary": "An early prototype support assistant for education providers consisting of a responsive landing page and a real-time chat interface with quick-reply chips. Replies come from simple keyword rules over Socket.IO, with the reply logic separated so an NLU engine could replace it.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "React",
+    "TypeScript",
+    "Material UI",
+    "Redux Toolkit",
+    "Socket.IO",
+    "FastAPI",
+    "Framer Motion"
+   ],
+   "features": [
+    "Landing page with hero, feature cards and technology list",
+    "Chat with message bubbles, typing indicator and quick-reply chips",
+    "Settings drawer, full-screen chat and responsive layout to phone width",
+    "Browser text-to-speech of bot replies; Socket.IO event flow"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/chatbotx-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/chatbotx/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/chatbotx/s1.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/chatbotx/s2.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/chatbotx/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "code-spark",
+   "name": "Code-Spark",
+   "group": "biz",
+   "status": "build",
+   "caveat": "Demo build with fictional users; code execution (Judge0) was not exercised in the screenshots.",
+   "tagline": "Gamified coding-practice platform: browser editor, challenges, XP, streaks and a leaderboard.",
+   "summary": "A coding-practice platform in the spirit of a lightweight LeetCode, with a progression layer of XP, levels, streaks, badges, daily goals and a leaderboard. Learners solve challenges in a Monaco-based browser editor, with submissions queued through Celery to a Judge0 execution service.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "Django",
+    "Django REST Framework",
+    "Celery",
+    "Redis",
+    "Judge0",
+    "Bootstrap",
+    "Docker"
+   ],
+   "features": [
+    "Challenge library with categories, difficulty filters, hints and submission history",
+    "Monaco-based browser code editor with language/theme selection",
+    "Asynchronous code execution via Celery and Judge0",
+    "XP, levels, streaks, badges, achievements, daily goals and leaderboard"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/code-spark-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/code-spark/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/code-spark/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/code-spark/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/code-spark/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "doc-reader",
+   "name": "DocReader Pro",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Mobile document reader, scanner and PDF toolbox with on-device OCR, merge, split, compress and convert.",
+   "summary": "A mobile app to open PDF, Word and Excel files, scan paper to PDF with native scanners and on-device OCR, and merge, split, compress and convert documents. Everything is organised in a local SQLite library with folders, favourites, recents, bookmarks and reading progress.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "SQLite",
+    "Firebase",
+    "ML Kit",
+    "VisionKit",
+    "Kotlin",
+    "Swift"
+   ],
+   "features": [
+    "PDF viewer with search, bookmarks, thumbnails, outline and password-protected PDFs; Word and Excel viewers",
+    "Document scanning (ML Kit on Android, VisionKit on iOS) with crop/filter review and OCR",
+    "Tools: image to PDF, merge, split, compress, PDF to JPG, text extraction",
+    "App lock with PIN and biometrics; Google/Apple sign-in or guest",
+    "9 UI languages incl. Arabic and Urdu; one-time Pro unlock"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/doc-reader-public",
+    "play": "https://play.google.com/store/apps/details?id=com.docreader.pro",
+    "appStore": "https://apps.apple.com/pk/app/docreader-pro-pdf-doc-view/id6786748623"
+   },
+   "media": {
+    "icon": "/projects/doc-reader/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/doc-reader/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/doc-reader/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/doc-reader/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "docu-scan",
+   "name": "Docu-Scan",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Demo mode on 240 fictional documents; classification is rule/statistics-based and the OCR/NLP stack was not running in the demo.",
+   "tagline": "Legal document classification and search: OCR intake, NLP tagging by case type and urgency, dashboard.",
+   "summary": "An intake and search tool that classifies legal documents by case type and urgency using keyword/TF-IDF scoring with confidence values, plus spaCy entity extraction and OCR for scans. It offers full-text search with filters, a KPI dashboard and CSV/JSON export.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "FastAPI",
+    "spaCy",
+    "Tesseract",
+    "Elasticsearch",
+    "Redis",
+    "Tailwind CSS",
+    "Docker Compose"
+   ],
+   "features": [
+    "Drag-and-drop upload (PDF, Word, images) with case, client and urgency hints",
+    "Case-type and urgency classification with confidence scores and extractive summary",
+    "spaCy entity extraction; full-text search with filters",
+    "Dashboard KPIs, document cards and detail view; CSV and JSON export"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/docu-scan-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/docu-scan/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/docu-scan/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/docu-scan/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/docu-scan/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "edul-insights",
+   "name": "Edul Insights",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Demo on synthetic generated data; not a production system.",
+   "tagline": "Academic analytics dashboard that surfaces at-risk students, performance trends and suggested interventions.",
+   "summary": "A single-page Dash dashboard for school performance and attendance with views for overview KPIs, at-risk students, monthly trends, student profiles and interventions. It runs on synthetic data (500 students) and uses RandomForest models for a probability-based risk tiering.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "Dash",
+    "Plotly",
+    "pandas",
+    "scikit-learn",
+    "SQLite",
+    "Faker"
+   ],
+   "features": [
+    "KPI overview with grade and subject filters",
+    "At-risk list (average score below 60% or attendance below 80%) with High/Medium/Watch tiers",
+    "Monthly performance trend chart",
+    "Sortable student profiles table and rule-based intervention recommendations"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/edul-insights-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/edul-insights/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/edul-insights/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/edul-insights/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/edul-insights/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "event-nest",
+   "name": "Event-Nest",
+   "group": "biz",
+   "status": "build",
+   "caveat": "Portfolio build on seeded fictional data; live Stripe payments cannot be shown offline.",
+   "tagline": "Full-stack event ticketing platform with Stripe Checkout, QR e-tickets and organizer sales dashboard.",
+   "summary": "A web platform for event discovery and ticketing where attendees search, filter and favourite events and buy tickets via Stripe Checkout, receiving QR e-tickets. Organizers create events with image/video uploads and view revenue and attendee metrics.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Stripe",
+    "JWT"
+   ],
+   "features": [
+    "Browse by category, full-text search and favourites",
+    "Stripe Checkout payment with real-time inventory and cancel-to-restore stock",
+    "Per-booking QR e-tickets (printable PDF)",
+    "Organizer event CRUD, media upload and sales/attendee dashboard"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/event-nest-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/event-nest/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/event-nest/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/event-nest/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/event-nest/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "fin-flow",
+   "name": "FinFlow",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Dashboard demo on generated data; the Kafka/Spark pipeline is designed in code but was not run, and demo risk scores are random.",
+   "tagline": "Finance analytics dashboard for transaction monitoring and fraud detection, designed around Kafka and Spark.",
+   "summary": "A transaction-monitoring dashboard with KPI cards, charts, severity-coded alerts and a filterable data explorer. The codebase contains a designed Kafka, PySpark and PostgreSQL streaming pipeline with rule and ML anomaly detection, but the demo shown runs a standalone dashboard on generated data.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "Streamlit",
+    "Plotly",
+    "Kafka",
+    "PySpark",
+    "PostgreSQL",
+    "scikit-learn",
+    "Docker"
+   ],
+   "features": [
+    "KPI cards: transactions, volume, flagged count, average amount, active alerts",
+    "Hourly volume, category donut, country bar and risk-score histogram charts",
+    "Alerts and recent-transactions cards with severity colours",
+    "Data Explorer with filters and CSV/JSON download"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/fin-flow-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/fin-flow/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/fin-flow/s1.webp",
+      "w": 900,
+      "h": 652
+     },
+     {
+      "src": "/projects/fin-flow/s2.webp",
+      "w": 900,
+      "h": 443
+     },
+     {
+      "src": "/projects/fin-flow/s3.webp",
+      "w": 900,
+      "h": 618
+     }
+    ]
+   }
+  },
+  {
+   "id": "fleet-track",
+   "name": "Fleet-Track",
+   "group": "biz",
+   "status": "build",
+   "caveat": "Concept UI on mock data; no live tracking, persistence or login.",
+   "tagline": "Courier and fleet dashboard concept with map, deliveries, vehicles, drivers and analytics in one SPA.",
+   "summary": "A dispatcher-style single-page dashboard for tracking vehicles, deliveries and drivers, with a Leaflet map showing markers and route lines and Chart.js analytics. The UI runs on in-browser mock data; an Express/PostgreSQL/Socket.IO backend exists as a reference but is not wired to it.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Vanilla JavaScript",
+    "Leaflet",
+    "Chart.js",
+    "Node.js",
+    "Express",
+    "Socket.IO",
+    "PostgreSQL",
+    "Docker"
+   ],
+   "features": [
+    "KPI cards: active vehicles, pending deliveries, completed today, average delivery time",
+    "Interactive map with vehicle/delivery markers, route lines and layer toggles",
+    "Delivery table with status/priority badges, filters and search",
+    "Vehicle and driver cards; analytics charts (delivery volume, utilization, route efficiency)"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/fleet-track-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/fleet-track/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/fleet-track/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/fleet-track/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/fleet-track/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "fluentta-ai",
+   "name": "Fluentta AI",
+   "group": "ai",
+   "status": "unreleased",
+   "caveat": "Not publicly released; an engineering portfolio case study.",
+   "tagline": "English-learning Flutter app: bundled CEFR lessons and roleplay plus AI chat and pronunciation checks",
+   "summary": "Fluentta AI pairs a large offline curriculum (180 manifest-listed CEFR lessons and six scripted roleplay scenarios) with AI conversation, cloud pronunciation scoring and on-device text-to-speech. All cloud AI calls go through four Firebase-hosted HTTPS Cloud Functions that verify the user's identity token, so provider credentials never ship in the app.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Provider",
+    "SharedPreferences",
+    "Firebase",
+    "Cloud Functions",
+    "Node.js",
+    "Cloud Firestore"
+   ],
+   "features": [
+    "180 manifest-listed lessons across CEFR bands plus six roleplay scenarios, bundled as JSON",
+    "Open AI chat (typed or hold-to-speak) with at most one correction block per turn",
+    "Pronunciation assessment with per-word feedback, scored by deterministic alignment on the server",
+    "Hearts economy on the free tier; Pro removes the cap; failed AI calls refund the heart",
+    "UI in English, Spanish, French and Urdu"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/fluentta-ai-public"
+   },
+   "media": {
+    "icon": "/projects/fluentta-ai/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/fluentta-ai/s1.webp",
+      "w": 435,
+      "h": 900
+     },
+     {
+      "src": "/projects/fluentta-ai/s2.webp",
+      "w": 435,
+      "h": 900
+     },
+     {
+      "src": "/projects/fluentta-ai/s3.webp",
+      "w": 435,
+      "h": 900
+     }
+    ]
+   }
+  },
+  {
+   "id": "future-watch",
+   "name": "Future Watch",
+   "group": "web",
+   "status": "live",
+   "caveat": null,
+   "tagline": "Company website of a small app studio: 16-app catalogue, per-app privacy policies and a private admin area",
+   "summary": "The marketing and catalogue site for Future Watch, a studio that ships apps for phones, TVs and tablets. It lists 16 apps filterable by Android TV, Android, iOS and Apple TV, hosts per-app privacy policies, and has a password-gated admin area that edits the catalogue without a redeploy.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "React 18",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "Netlify Edge Functions",
+    "Cloudflare R2",
+    "TanStack Query",
+    "Framer Motion"
+   ],
+   "features": [
+    "Catalogue of 16 apps with platform filter tabs showing live counts",
+    "Store badges with disabled 'coming soon' state; seventeen per-app privacy policies",
+    "Catalogue records live in R2 and are served by an edge function (editable without redeploy)",
+    "Password-gated admin: catalogue, ad-verification file, build tracking, analytics views (not shown)",
+    "Contact form sent through a hosted email service (EmailJS)"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/future-watch-public",
+    "live": "https://futurewatch.co"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/future-watch/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/future-watch/s1.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/future-watch/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/future-watch/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "fw-global",
+   "name": "FW Global",
+   "group": "web",
+   "status": "live",
+   "caveat": null,
+   "tagline": "Company website and private operations console for FW Global LLC, driven by a live product registry",
+   "summary": "A single React SPA that serves as the public site for FW Global LLC (positioned as an AI applications company, with its Kalendra scheduling product and an app catalogue) and as a password-gated admin console. The console edits products, tracks builds and QA, and reads app analytics, with no application server behind it.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "React 18",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Netlify Edge Functions",
+    "Cloudflare R2",
+    "TanStack Query"
+   ],
+   "features": [
+    "Products page merges a built-in fallback list with a live registry from /api/apps",
+    "Per-app privacy policies at /privacy/:appId",
+    "Admin product editor with Tiptap rich-text policies and ad-verification file",
+    "Build and QA tracker plus thirteen lazy-loaded per-app analytics pages",
+    "Seven Netlify Edge Functions with hand-written SigV4 signing to R2"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/fw-global-public",
+    "live": "https://fwglobal.co"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/fw-global/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/fw-global/s1.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/fw-global/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/fw-global/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "hangman",
+   "name": "Hangman TV",
+   "group": "games",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Word-guessing game with a touch Mobile app and a remote-driven Android TV app sharing one design",
+   "summary": "Classic hangman with 9 word categories across 4 difficulty tiers, hints, timed rounds and local pass-and-play for 2 to 6 players. It ships as an Android Mobile app and an Android TV app (same application ID), and the project is a study in handling touch versus D-pad interaction.",
+   "platforms": [
+    "Android",
+    "Android TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "Play Billing",
+    "Kotlin",
+    "Unity Ads",
+    "shared_preferences"
+   ],
+   "features": [
+    "9 categories x 4 difficulty tiers; first 3 categories free",
+    "Easy, Medium, Hard, Kids and Timed (30 to 120 s) modes",
+    "Local multiplayer for 2 to 6 players with standings and tie handling",
+    "Daily free hint, hint bundles, category unlocks, Pro subscription, rewarded-ad revive",
+    "TV build: D-pad focus links, on-screen 26-key keyboard; 20 languages on Mobile"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/hangman-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.hangman"
+   },
+   "media": {
+    "icon": "/projects/hangman/icon.webp",
+    "hero": {
+     "src": "/projects/hangman/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/hangman/w1.webp",
+      "w": 1100,
+      "h": 619
+     },
+     {
+      "src": "/projects/hangman/w2.webp",
+      "w": 1100,
+      "h": 619
+     }
+    ]
+   }
+  },
+  {
+   "id": "heads-up-to-go",
+   "name": "Heads Up To Go",
+   "group": "games",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Remote-controlled charades party game for Android TV with timed turns and D-pad scoring",
+   "summary": "A living-room party game where one player acts or describes prompts while the TV shows the word, timer and score, and the remote marks the result. Designed Android TV-only with no touch path, it covers a free and paid category catalogue with about 7,000 bundled prompts.",
+   "platforms": [
+    "Android TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Kotlin",
+    "Firebase",
+    "Play Billing",
+    "Unity Ads",
+    "just_audio"
+   ],
+   "features": [
+    "2 to 6 players with custom names typed via an on-screen D-pad keyboard",
+    "Right = correct, Left = wrong, Down = pass, Up = pause menu",
+    "Timed turns of 60 to 180 seconds; per-turn summary and last-game leaderboard",
+    "9 free and 18 paid categories plus 5 bundles; about 7,000 prompts (approximate)",
+    "Unlock by purchase, no-ads subscription, rewarded ad or games-played counter"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/heads-up-to-go-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.headsuptogo"
+   },
+   "media": {
+    "icon": "/projects/heads-up-to-go/icon.webp",
+    "hero": {
+     "src": "/projects/heads-up-to-go/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/heads-up-to-go/w1.webp",
+      "w": 1100,
+      "h": 619
+     },
+     {
+      "src": "/projects/heads-up-to-go/w2.webp",
+      "w": 1100,
+      "h": 619
+     },
+     {
+      "src": "/projects/heads-up-to-go/w3.webp",
+      "w": 1100,
+      "h": 619
+     }
+    ]
+   }
+  },
+  {
+   "id": "ledgerwise",
+   "name": "LedgerWise",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Minimal expense tracker: quick entry, monthly goal, analytics, CSV/PDF export, optional cloud sync",
+   "summary": "A local-first expense tracker for iOS and Android built around fast entry and a monthly spending goal. Data lives in a Hive store, with optional Google or Apple sign-in syncing through Firestore, and users get day/week/month dashboards, period analytics and exports.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Hive",
+    "Firebase",
+    "Swift",
+    "Kotlin",
+    "provider",
+    "Firestore"
+   ],
+   "features": [
+    "Quick entry with item, price, quantity, category, date and note",
+    "Monthly goal progress and day/week/month dashboard",
+    "Daily, weekly, monthly and yearly analytics with custom-painted charts",
+    "CSV and PDF export for a date range (Premium); reminders (daily, weekly, monthly)",
+    "15 UI languages including Arabic and Urdu; any ISO currency"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/ledgerwise-public",
+    "play": "https://play.google.com/store/apps/details?id=com.ledgerwise.app",
+    "appStore": "https://apps.apple.com/pk/app/ledger-wise/id6756644842"
+   },
+   "media": {
+    "icon": "/projects/ledgerwise/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/ledgerwise/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/ledgerwise/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/ledgerwise/p3.webp",
+      "w": 450,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "loan-emi",
+   "name": "Loan EMI",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Android loan calculator and tracker with amortization, prepayment, comparison tools and 15 languages",
+   "summary": "A loan and EMI calculator that also tracks the loans a user saves. It computes reducing-balance EMI with a month-by-month schedule and adds planning tools such as prepayment, comparison, refinance, APR and affordability, with data kept on-device and optional Firestore backup.",
+   "platforms": [
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Provider",
+    "Firebase",
+    "Kotlin",
+    "shared_preferences",
+    "pdf",
+    "Firestore"
+   ],
+   "features": [
+    "EMI calculator with amortization schedule exportable as CSV or PDF",
+    "Prepayment, loan comparison (up to four), refinance, rate stress test, APR, borrowing power",
+    "Saved-loans dashboard with per-loan payment tracking and remaining balance",
+    "47 currencies independent of 15 UI languages (incl. RTL Arabic and Urdu)",
+    "450 test declarations across 61 test files (counted from source)"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/loan-emi-public",
+    "play": "https://play.google.com/store/apps/details?id=co.futurewatch.emicalculator"
+   },
+   "media": {
+    "icon": "/projects/loan-emi/icon.webp",
+    "hero": {
+     "src": "/projects/loan-emi/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/loan-emi/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/loan-emi/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/loan-emi/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "minesweeper",
+   "name": "Minesweeper",
+   "group": "games",
+   "status": "store",
+   "caveat": "The App Store listing covers iPhone, iPad and Apple TV.",
+   "tagline": "Classic Minesweeper across four platforms: Flutter mobile, Android TV, and native SwiftUI Apple TV",
+   "summary": "Classic Minesweeper with three presets plus custom boards, hints, flagging and a bomb-recovery continue mechanic, delivered as three codebases for Android/iOS, Android TV and Apple TV. The project focuses on keeping identical game rules across touch, D-pad and Siri Remote input.",
+   "platforms": [
+    "Android",
+    "iOS",
+    "Android TV",
+    "Apple TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Kotlin",
+    "Swift",
+    "SwiftUI",
+    "Firebase",
+    "Play Billing",
+    "StoreKit"
+   ],
+   "features": [
+    "Beginner, Intermediate, Expert and custom boards; top-10 high scores per preset",
+    "First tap is always safe (mines placed lazily outside a 3x3 zone)",
+    "Touch with pinch/pan zoom, D-pad cursor on Android TV, Siri Remote press tracking",
+    "Native Play Billing and StoreKit bridges; rewarded-ad unlock and recovery",
+    "15 languages on mobile; TV apps English only"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/minesweeper-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.minesweeper",
+    "appStore": "https://apps.apple.com/pk/app/minesweeper-puzzle-game/id6766427737"
+   },
+   "media": {
+    "icon": "/projects/minesweeper/icon.webp",
+    "hero": {
+     "src": "/projects/minesweeper/hero.webp",
+     "w": 1280,
+     "h": 675
+    },
+    "shots": [
+     {
+      "src": "/projects/minesweeper/w1.webp",
+      "w": 1100,
+      "h": 619
+     }
+    ]
+   }
+  },
+  {
+   "id": "mood-screen",
+   "name": "Mood Screen",
+   "group": "games",
+   "status": "unreleased",
+   "caveat": "Not publicly released; documented as a case study with emulator screenshots.",
+   "tagline": "Ambient looping-video app turning a phone or Android TV into a calm weather-matched display",
+   "summary": "An ambient scene player with curated looping nature, weather and sky videos, optional weather-matched moods, a clock overlay and screen dimming, for relaxing, background display or sleep. It exists as two Flutter projects: an Android TV app and a phone app.",
+   "platforms": [
+    "Android TV",
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Kotlin",
+    "video_player",
+    "Firebase",
+    "Pexels API",
+    "WeatherAPI"
+   ],
+   "features": [
+    "12 scenes on the phone Explore screen (6 free, 6 premium)",
+    "Optional weather sync from IP-derived or manual location, with day and night sets",
+    "Adaptive video quality 720p to 4K using network speed and a native 4K decode check",
+    "Clock/date and weather overlays, screen dimming, keep-awake",
+    "Android TV leanback entry plus a Daydream screensaver service"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/mood-screen-public"
+   },
+   "media": {
+    "icon": "/projects/mood-screen/icon.webp",
+    "hero": {
+     "src": "/projects/mood-screen/hero.webp",
+     "w": 1400,
+     "h": 788
+    },
+    "shots": [
+     {
+      "src": "/projects/mood-screen/s1.webp",
+      "w": 415,
+      "h": 900
+     },
+     {
+      "src": "/projects/mood-screen/s2.webp",
+      "w": 415,
+      "h": 900
+     },
+     {
+      "src": "/projects/mood-screen/s3.webp",
+      "w": 900,
+      "h": 506
+     }
+    ]
+   }
+  },
+  {
+   "id": "price-matic",
+   "name": "Price-Matic",
+   "group": "biz",
+   "status": "build",
+   "caveat": "Demo on a fictional in-memory dataset; the ML price model is trained on synthetic data.",
+   "tagline": "Mobile-first appliance marketplace with comparison, seller chat and ML used-appliance price estimates",
+   "summary": "A marketplace and price assistant for the Pakistani market (prices in PKR): browse and compare new appliances, trade used ones with seller chat, and request an ML price estimate for an old appliance. The valuation screen calls a FastAPI endpoint serving a scikit-learn model.",
+   "platforms": [
+    "Mobile (React Native/Expo)",
+    "Web"
+   ],
+   "stack": [
+    "React Native",
+    "Expo",
+    "Supabase",
+    "FastAPI",
+    "scikit-learn",
+    "expo-router",
+    "PostgreSQL"
+   ],
+   "features": [
+    "Brand catalogue and product pages with specs; side-by-side comparison with differences highlighted",
+    "Used-appliance marketplace with filters, listing detail and one-to-one seller chat",
+    "Sell flow with photo upload and My Ads edit/delete; admin inventory screens",
+    "Valuation form posting to a FastAPI endpoint that returns an estimated price",
+    "Per-appliance and global reviews with a write-review flow; 30 routes"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/price-matic-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/price-matic/s1.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/price-matic/s2.webp",
+      "w": 431,
+      "h": 900
+     },
+     {
+      "src": "/projects/price-matic/s3.webp",
+      "w": 431,
+      "h": 900
+     }
+    ]
+   }
+  },
+  {
+   "id": "pulse-burnout",
+   "name": "Pulse",
+   "group": "apps",
+   "status": "store",
+   "caveat": "Self-reflection tool; it does not diagnose or treat burnout.",
+   "tagline": "Local-first Flutter app for daily work-stress self-reflection with a smoothed score and drivers",
+   "summary": "Pulse has users answer a 12-question baseline and then three daily questions to see a smoothed 0-100 score, a band and the dimension driving it (exhaustion, disengagement, inefficacy). Data stays local-first with optional Google/Apple sign-in for cloud restore.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Hive",
+    "Firebase",
+    "go_router",
+    "Cloud Firestore"
+   ],
+   "features": [
+    "12-question baseline then three-question daily check-in on a 0-6 scale",
+    "Custom weighted score smoothed with an exponential moving average, four bands",
+    "Optional journal note, driver identification, static micro-action library, 7-day chart",
+    "Daily reminders; in-app account deletion; 20 locale files incl. right-to-left",
+    "14 test files covering scoring, analytics, ads, paywall"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/pulse-burnout-public",
+    "play": "https://play.google.com/store/apps/details?id=app.pulse.daily",
+    "appStore": "https://apps.apple.com/pk/app/pulse-burnout-stress-check/id6770918012"
+   },
+   "media": {
+    "icon": "/projects/pulse-burnout/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/pulse-burnout/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/pulse-burnout/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/pulse-burnout/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "pulsebp",
+   "name": "PulseBP",
+   "group": "apps",
+   "status": "store",
+   "caveat": "Manual logging tool; it does not measure blood pressure and is not a medical device.",
+   "tagline": "Local-first Android log for blood pressure and wellness metrics with trends, reminders and PDF/CSV reports",
+   "summary": "A manual-entry logging app: users type in blood pressure, blood sugar, weight, SpO2, sleep, calories, hydration and medication values, which are stored on-device in SQLite and turned into history, trends, summaries and shareable reports. Optional sign-in adds cloud backup and sync, and Pro adds optional AI summaries via a serverless proxy.",
+   "platforms": [
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "SQLite",
+    "Firebase",
+    "Kotlin",
+    "Cloudflare Workers",
+    "TypeScript"
+   ],
+   "features": [
+    "Manual entry log for BP plus glucose, weight, SpO2, sleep, calories, hydration, medication",
+    "Per-category reminders and medication schedules with taken/skipped tracking",
+    "PDF and CSV export through the system share sheet",
+    "Offline-first sync queue (last-updated-wins) when signed in with Google or Apple",
+    "Free with ads and limited history; Pro subscription incl. optional AI summaries; 15 locales"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/pulsebp-public",
+    "play": "https://play.google.com/store/apps/details?id=co.futurewatch.pulsebp"
+   },
+   "media": {
+    "icon": "/projects/pulsebp/icon.webp",
+    "hero": {
+     "src": "/projects/pulsebp/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/pulsebp/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/pulsebp/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/pulsebp/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "quietfan",
+   "name": "QuietFan",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Android fan and appliance sound player: 31 looping sounds, sleep timer with fade-out, offline cache",
+   "summary": "An audio utility that plays steady fan, ventilation and air-purifier recordings on a loop, with a media-session player, notification controls, favorites and a sleep timer. Sounds download once and then play from device storage. Appears on screen as 'Fan Sounds'.",
+   "platforms": [
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Provider",
+    "just_audio",
+    "audio_service",
+    "Firebase",
+    "Google Play Billing",
+    "google_mobile_ads"
+   ],
+   "features": [
+    "31 looping sounds across box, ceiling, desk, stand and air-purifier fans (each free or premium)",
+    "Sleep timer 15 min to 2 hours with optional fade-out; weekly bedtime reminder",
+    "Foreground media-playback service with notification and lock-screen controls",
+    "Download-once audio cache with streaming fallback",
+    "Seven in-app languages; free tier with ads, premium via subscription, one-time products or rewarded ad"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/quietfan-public",
+    "play": "https://play.google.com/store/apps/details?id=co.fwglobal.fansounds"
+   },
+   "media": {
+    "icon": "/projects/quietfan/icon.webp",
+    "hero": {
+     "src": "/projects/quietfan/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/quietfan/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/quietfan/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/quietfan/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "research-assistant-x",
+   "name": "Research Assistant X",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Demo mode with fictional papers and canned chatbot replies; the full app needs external service credentials.",
+   "tagline": "AI research-paper recommender: trends dashboard, RAG paper assistant and citation graph explorer",
+   "summary": "A pipeline plus Streamlit app that ingests arXiv and Semantic Scholar papers and helps people discover relevant research. It combines a trends dashboard, a retrieval-augmented chatbot using gte-large embeddings in Milvus with Gemini-written summaries, and a Dgraph-backed citation graph.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "Streamlit",
+    "Prefect",
+    "PostgreSQL",
+    "Milvus",
+    "Dgraph",
+    "Gemini",
+    "Docker"
+   ],
+   "features": [
+    "Ingestion from arXiv and Semantic Scholar with PDF parsing and section extraction",
+    "LLM keyword and domain extraction at ingest; Prefect flow every 4 hours",
+    "gte-large (1024-dim) embeddings and vector search in Milvus; Gemini relevance explanations",
+    "Dashboard of publication trends, citations, top keywords, authors and domains",
+    "Citation graph explorer backed by Dgraph"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/research-assistant-x-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/research-assistant-x/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/research-assistant-x/s1.webp",
+      "w": 894,
+      "h": 900
+     },
+     {
+      "src": "/projects/research-assistant-x/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/research-assistant-x/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "resetta",
+   "name": "Resetta",
+   "group": "apps",
+   "status": "store",
+   "caveat": "Self-reflection tool; no diagnosis or health-outcome claims.",
+   "tagline": "Illustrated burnout self-tracker: 12-question baseline, 3 daily questions, smoothed score and Recovery Mode.",
+   "summary": "Resetta is a calm, illustrated burnout self-tracker for working people. A 12-question baseline and three short daily questions (exhaustion, disengagement, inefficacy) feed a smoothed 0-100 score that settles into one of four named states (Restored, Taxed, Overloaded, Depleted), and Recovery Mode re-centres advice on the dominant driver. It is a self-reflection tool, not a diagnosis.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "go_router",
+    "Hive",
+    "Firebase",
+    "Firestore"
+   ],
+   "features": [
+    "12-question baseline plus 3 daily check-in questions on a 0-6 scale with Skip",
+    "Smoothed 0-100 score mapped to four named states and a dominant driver",
+    "Burnout Mode and Recovery Mode home views with dimension-specific advice and checklist",
+    "Estimates for skipped days are labelled as estimates; past projections are frozen",
+    "Freemium: ads on free tier; premium unlocks recovery advice, journal notes, longer history, monthly PDF export"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/resetta-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.resetta",
+    "appStore": "https://apps.apple.com/pk/app/resetta-daily-stress-mood/id6785867348"
+   },
+   "media": {
+    "icon": "/projects/resetta/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/resetta/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/resetta/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/resetta/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "sleep-sounds",
+   "name": "Sleep Sounds",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Android ambient-audio player: 24 looping sounds in six categories with sleep timer and offline cache.",
+   "summary": "Sleep Sounds is an Android ambient-audio app offering 24 looping sounds (rain, ocean, nature, fans, room ambience, coloured noise) played one at a time. It adds volume control, loop or sleep timer with optional fade-out, favourites, a downloadable cache for offline replay, and notification transport controls. It serves as a background sound player; the README makes no claim that it improves sleep.",
+   "platforms": [
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Provider",
+    "just_audio",
+    "just_audio_background",
+    "Firebase",
+    "Google Play Billing",
+    "Google Mobile Ads"
+   ],
+   "features": [
+    "24 looping sounds across 6 categories with home hub, library filters and full-screen player",
+    "Sleep timer presets up to 2 hours with optional 60-second volume fade-out; loop mode",
+    "Cache-first audio: cached sounds replay offline",
+    "Tiered access: free samples, rewarded-ad unlocks, subscription, legacy purchases",
+    "Bedtime reminder notifications and 13 languages"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/sleep-sounds-public",
+    "play": "https://play.google.com/store/apps/details?id=co.fwglobal.sleepsounds"
+   },
+   "media": {
+    "icon": "/projects/sleep-sounds/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/sleep-sounds/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/sleep-sounds/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/sleep-sounds/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "slim-track",
+   "name": "Slim Track",
+   "group": "apps",
+   "status": "store",
+   "caveat": "BMI is a screening statistic, not a diagnosis.",
+   "tagline": "Local-first weight and BMI tracker built around unit-consistent, unrounded calculations.",
+   "summary": "Slim Track is a weight-logging and BMI-tracking app: you record weight, set an optional goal, and see BMI, progress, history and charts. Its engineering focus is numerical correctness (canonical kg/cm storage, rounding only at display, classification on unrounded BMI), with local-first SQLite storage and an optional Firestore backup. A small Cloudflare Workers proxy handles Pro features such as a weekly generated insight.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "SQLite",
+    "Firebase",
+    "Firestore",
+    "Cloudflare Workers",
+    "TypeScript"
+   ],
+   "features": [
+    "Daily weight log with BMI in four standard adult categories, goal progress, history and charts",
+    "Weight (kg/lb) and height (cm/ft-in) units switchable independently; values stored in kg and cm",
+    "Local-first SQLite with optional Google/Apple sign-in and Firestore backup",
+    "Pro tier: ad-free, longer chart ranges, trend line, photo journal, CSV/PDF export, weekly text summary",
+    "20 selectable app languages"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/slim-track-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.slimtrack",
+    "appStore": "https://apps.apple.com/pk/app/slim-track-weight-loss-bmi/id6781175781"
+   },
+   "media": {
+    "icon": "/projects/slim-track/icon.webp",
+    "hero": {
+     "src": "/projects/slim-track/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/slim-track/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/slim-track/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/slim-track/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "smart-transfer",
+   "name": "Smart Transfer",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Android phone-to-phone file transfer over local Wi-Fi with QR/code pairing and a Phone Clone mode.",
+   "summary": "Smart Transfer moves photos, videos, music, documents, apps and folders from one phone to another. The devices pair over the same Wi-Fi or hotspot via nearby discovery, a QR code or a six-digit code, then transfer directly over plain HTTP on the local network; a Phone Clone path batches categories for new-device setup. Firestore holds pairing metadata only, not the files.",
+   "platforms": [
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Cloud Firestore",
+    "mDNS/NSD",
+    "HTTP file server",
+    "Firebase",
+    "Google Play Billing",
+    "Google Mobile Ads"
+   ],
+   "features": [
+    "Send tab with categories: photos, videos, music, documents, apps, folders",
+    "Pairing via nearby LAN discovery, QR scan or six-digit code",
+    "Chunked (256 KiB) LAN uploads with byte-offset resume, pause/resume/cancel",
+    "Phone Clone: Old Phone / New Phone multi-category batch transfer",
+    "Local transfer history; eleven in-app languages"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/smart-transfer-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.smarttransfer"
+   },
+   "media": {
+    "icon": "/projects/smart-transfer/icon.webp",
+    "hero": {
+     "src": "/projects/smart-transfer/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/smart-transfer/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/smart-transfer/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/smart-transfer/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "speaker-cleaner",
+   "name": "Speaker Cleaner",
+   "group": "apps",
+   "status": "store",
+   "caveat": "Plays synthesized tones through the speaker; no claim that any mode removes water or dust or repairs hardware.",
+   "tagline": "Android utility that plays synthesized tone sequences through the loudspeaker, plus a speaker test.",
+   "summary": "Speaker Cleaner plays device-synthesized tone sequences (sweeps, steady and pulsed tones, pink noise) through the phone speaker in five modes: Auto Clean, Water Eject, Dust Eject, Manual Clean and Speaker Test. Presets are rendered as a single phase-continuous 16-bit PCM waveform at 44.1 kHz. The README describes the software only and does not claim any mode removes water or dust or repairs hardware.",
+   "platforms": [
+    "Android"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "PCM synthesis",
+    "audioplayers",
+    "audio_session",
+    "Firebase",
+    "Google Mobile Ads",
+    "Play Billing"
+   ],
+   "features": [
+    "Five modes: Auto Clean (~80 s), Water Eject (~45 s), Dust Eject (~50 s), Manual Clean (30 s), Speaker Test",
+    "Manual mode with user-chosen frequency 100 Hz to 2.5 kHz that tracks the slider live",
+    "Speaker Test plays reference tones, a sweep and pink noise for left, right and stereo",
+    "Premium subscription removes ads; three modes gated behind watch-ad-or-subscribe",
+    "Eleven selectable interface languages"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/speaker-cleaner-public",
+    "play": "https://play.google.com/store/apps/details?id=co.fwglobal.speakercleaner"
+   },
+   "media": {
+    "icon": "/projects/speaker-cleaner/icon.webp",
+    "hero": null,
+    "shots": [
+     {
+      "src": "/projects/speaker-cleaner/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/speaker-cleaner/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/speaker-cleaner/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "tranquil",
+   "name": "Tranquil",
+   "group": "apps",
+   "status": "store",
+   "caveat": "The linked Play listing is the Android TV edition; the app is also live on Amazon Fire TV. The App Store listing covers iPhone, iPad and Apple TV.",
+   "tagline": "Ambient video-and-sound app on five platforms (Mobile, Android TV, Fire TV, Apple TV) from three codebases.",
+   "summary": "Tranquil offers looping ambient video scenes and sleep sounds for winding down, sleeping or background calm, with 23 video scenes, 6 looping sounds, a sleep timer and five themes. It is engineered as three codebases: a Flutter Mobile app (Android, iOS), a Flutter TV app (Android TV, Fire TV via store flavors) and a native SwiftUI Apple TV app. There are no accounts; purchases are restored from the store.",
+   "platforms": [
+    "Android",
+    "iOS",
+    "Android TV",
+    "Fire TV",
+    "Apple TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "SwiftUI",
+    "Kotlin",
+    "StoreKit 2",
+    "Play Billing",
+    "Amazon IAP",
+    "Firebase"
+   ],
+   "features": [
+    "23 looping video scenes (8 free, 15 premium) and 6 looping sounds (3 free, 3 premium)",
+    "Sleep timer with platform-specific end action; favourites, themes, audio-only mode",
+    "Remote-first TV UIs with D-pad focus handling on Android TV, Fire TV and Apple TV",
+    "Monthly subscription plus 14 one-time unlocks; rewarded ad grants one hour on Mobile",
+    "20 languages on Mobile; English on TV apps"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/tranquil-public",
+    "play": "https://play.google.com/store/apps/details?id=com.tranquil.androidtv",
+    "appStore": "https://apps.apple.com/pk/app/tranquil-sleep-relax/id6772150691"
+   },
+   "media": {
+    "icon": "/projects/tranquil/icon.webp",
+    "hero": {
+     "src": "/projects/tranquil/hero.webp",
+     "w": 1280,
+     "h": 720
+    },
+    "shots": []
+   }
+  },
+  {
+   "id": "truth-or-lie",
+   "name": "Truth or Lie TV",
+   "group": "games",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Android TV party game: vote Truth or Lie on statements with the remote D-pad before a timer runs out.",
+   "summary": "Truth or Lie TV is a hot-seat quiz for a living-room TV: a statement appears for everyone, each player votes Truth or Lie in turn with the remote (Left/Right, Select to lock), and the TV reveals the answer and keeps score. It supports 1 to 6 players, 3-15 rounds and about 3,550 bundled statements across 15 categories. Native Kotlin app with an emphasis on D-pad focus and input engineering.",
+   "platforms": [
+    "Android TV"
+   ],
+   "stack": [
+    "Kotlin",
+    "Android Views",
+    "Play Billing",
+    "Unity Ads",
+    "Firebase Analytics",
+    "SQLite",
+    "Konfetti"
+   ],
+   "features": [
+    "Remote-only voting: Left = Truth, Right = Lie, Select locks, Up/Back pauses",
+    "1 to 6 players, 3/5/7/10/15 rounds, vote timer 10-50 s",
+    "15 bundled categories (3 free, 12 paid or unlockable) playable offline",
+    "100 points per correct vote; final standings and on-device all-time leaderboard",
+    "Rewarded-ad, per-category or all-categories unlocks"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/truth-or-lie-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.truthorlietv"
+   },
+   "media": {
+    "icon": "/projects/truth-or-lie/icon.webp",
+    "hero": {
+     "src": "/projects/truth-or-lie/hero.webp",
+     "w": 1280,
+     "h": 720
+    },
+    "shots": []
+   }
+  },
+  {
+   "id": "modern-dashboard",
+   "name": "Vizboard",
+   "group": "ai",
+   "status": "build",
+   "caveat": "Demo showcase running on generated, fictional data.",
+   "tagline": "Interactive dashboard showcasing 15 chart types on synthetic data with a dark theme",
+   "summary": "A demo dashboard that switches between 15 interactive chart types (line, bar, 3D scatter, heatmap, word cloud, map, gauge, funnel, radar and more) from one sidebar selector. All data is generated synthetic data; a Streamlit front end was run and a parallel Gradio app exists.",
+   "platforms": [
+    "Web"
+   ],
+   "stack": [
+    "Python",
+    "Streamlit",
+    "Plotly",
+    "Folium",
+    "WordCloud",
+    "pandas",
+    "Gradio"
+   ],
+   "features": [
+    "15 chart types selected from one sidebar dropdown",
+    "Per-chart description, data summary and quick stats",
+    "Refresh Data button regenerates the synthetic dataset",
+    "Shared dark theme across Plotly figures; hover, zoom and 3D rotation",
+    "One chart registry feeds both Streamlit and Gradio front ends"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/modern-dashboard-public"
+   },
+   "media": {
+    "icon": null,
+    "hero": {
+     "src": "/projects/modern-dashboard/hero.webp",
+     "w": 1400,
+     "h": 875
+    },
+    "shots": [
+     {
+      "src": "/projects/modern-dashboard/s1.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/modern-dashboard/s2.webp",
+      "w": 900,
+      "h": 562
+     },
+     {
+      "src": "/projects/modern-dashboard/s3.webp",
+      "w": 900,
+      "h": 562
+     }
+    ]
+   }
+  },
+  {
+   "id": "volume-booster",
+   "name": "Volume Booster",
+   "group": "apps",
+   "status": "store",
+   "caveat": "Adjusts digital gain and filtering; it does not raise what the speaker can physically produce.",
+   "tagline": "Android and iOS audio-tuning app with boost dial, 10-band equalizer, 20 presets and a built-in music player.",
+   "summary": "Volume Booster combines a 100-200 percent boost dial, a 10-band equalizer with 20 presets, bass boost and virtualizer controls, and a mini music player in a dark-themed app. On Android effects use the platform android.media.audiofx engine behind a foreground service; on iOS they are applied only to the app's own player via AVAudioEngine. Android also offers an audio-level driven Edge Lighting overlay.",
+   "platforms": [
+    "Android",
+    "iOS"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Kotlin",
+    "Swift",
+    "android.media.audiofx",
+    "AVAudioEngine",
+    "just_audio",
+    "Firebase"
+   ],
+   "features": [
+    "Boost dial (100-200 percent) with presets; 10-band equalizer with 20 presets",
+    "Bass boost, virtualizer and one-tap Sub Bass mode",
+    "Mini player with imported files, playlists, favourites, queue; device-wide song browser on Android",
+    "Edge Lighting overlay driven by audio level (Android only)",
+    "Pro subscription removes ads; 10 interface languages"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/volume-booster-public",
+    "play": "https://play.google.com/store/apps/details?id=com.volume.soundbooster",
+    "appStore": "https://apps.apple.com/pk/app/volume-booster-sound-equalizer/id6786739677"
+   },
+   "media": {
+    "icon": "/projects/volume-booster/icon.webp",
+    "hero": {
+     "src": "/projects/volume-booster/hero.webp",
+     "w": 1280,
+     "h": 720
+    },
+    "shots": [
+     {
+      "src": "/projects/volume-booster/p1.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/volume-booster/p2.webp",
+      "w": 563,
+      "h": 1000
+     },
+     {
+      "src": "/projects/volume-booster/p3.webp",
+      "w": 563,
+      "h": 1000
+     }
+    ]
+   }
+  },
+  {
+   "id": "world-clock",
+   "name": "World Clock TV",
+   "group": "apps",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Android TV world clock: remote-driven grid of live city clocks with a ~48,000-place searchable database.",
+   "summary": "World Clock TV is a living-room world clock for Android TV showing a paged grid of live city clocks (up to 25 city slots) with per-city weather and a detail view. Wall times come from IANA time zone rule data across about 400 zone identifiers, and cities are searched from a bundled SQLite database of about 48,000 places. The whole UI is driven by the remote D-pad.",
+   "platforms": [
+    "Android TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Kotlin",
+    "SQLite",
+    "Riverpod",
+    "IANA time zone data",
+    "Firebase",
+    "Unity Ads"
+   ],
+   "features": [
+    "3x3 paged grid of live city clocks with flag, UTC label and weather summary",
+    "Accent-insensitive city search over ~48,000 bundled places with ranked results",
+    "City detail view with long date, weather metrics and country facts",
+    "First-launch city seeded from approximate IP location; light and dark themes",
+    "Remove-ads, per-slot and bundle purchases via native Play Billing"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/world-clock-public",
+    "play": "https://play.google.com/store/apps/details?id=com.futurewatch.world_clock_tv"
+   },
+   "media": {
+    "icon": "/projects/world-clock/icon.webp",
+    "hero": {
+     "src": "/projects/world-clock/hero.webp",
+     "w": 1280,
+     "h": 720
+    },
+    "shots": []
+   }
+  },
+  {
+   "id": "would-you-rather",
+   "name": "Would You Rather TV",
+   "group": "games",
+   "status": "store",
+   "caveat": null,
+   "tagline": "Pass-the-remote Android TV party game: players vote on two-option questions and the majority scores.",
+   "summary": "Would You Rather TV is a living-room party game for Android TV: a two-option question appears, each player votes in turn with the remote, and those on the majority side score a point (ties award none). It supports 2 to 6 players, 3-15 rounds, a per-vote timer and 13 categories with about 2,500 distinct questions. Voting is local only; no online statistics exist.",
+   "platforms": [
+    "Android TV"
+   ],
+   "stack": [
+    "Flutter",
+    "Dart",
+    "Kotlin",
+    "Riverpod",
+    "Hive",
+    "Play Billing",
+    "Unity Ads",
+    "Firebase Analytics"
+   ],
+   "features": [
+    "Pass-the-remote voting with majority-scores rule for 2 to 6 players",
+    "13 categories (4 free, 9 paid) from bundled JSON question files; offline play",
+    "Per-vote timer (20-120 s) with random choice on timeout; pause menu and scoreboard",
+    "Custom player names typed with the TV keyboard, with native keyboard-close handling",
+    "Rewarded ad unlocks a category until app close, or one-time purchases"
+   ],
+   "highlights": [],
+   "flagship": false,
+   "links": {
+    "github": "https://github.com/haa1117/would-you-rather-public",
+    "play": "https://play.google.com/store/apps/details?id=com.wouldyourather.would_you_rather_tv"
+   },
+   "media": {
+    "icon": "/projects/would-you-rather/icon.webp",
+    "hero": {
+     "src": "/projects/would-you-rather/hero.webp",
+     "w": 1024,
+     "h": 500
+    },
+    "shots": [
+     {
+      "src": "/projects/would-you-rather/w1.webp",
+      "w": 1100,
+      "h": 619
+     }
+    ]
+   }
+  }
+ ]
+}
