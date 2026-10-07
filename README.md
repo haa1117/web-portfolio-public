@@ -14,12 +14,15 @@ npm run build && npm start
 
 | What | Where |
 | --- | --- |
-| Name, role, bio, email, social links | `src/lib/site.ts` |
+| Name, role, bio, email, social links, CV path | `src/lib/site.ts` |
+| Work experience, education, academic projects, leadership (from the CV) | `src/data/cv.ts` |
+| Downloadable CV | `public/Hassan-Ali-Alvi-CV.pdf` |
 | 45 projects (5 featured + 40 in the library): copy, links, status | `src/data/projects.json` (types in `src/lib/data.ts`) |
 | Project images (Play Store graphics, repo screenshots, optimised WebP) | `public/projects/<repo-slug>/` |
 | Website screenshots | `public/sites/` |
 | Services (12 areas, offers, and which projects prove each) | `src/components/Services.tsx` |
-| Skills copy | `src/components/Skills.tsx` |
+| Skills groups | `src/components/Skills.tsx` |
+| Experience / Education sections | `src/components/Experience.tsx`, `Education.tsx` |
 
 ## Highlights
 

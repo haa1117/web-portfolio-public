@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { ArrowUpRight, Briefcase, CheckCircle2, Copy, Loader2, Mail, Send } from "lucide-react";
+import { ArrowUpRight, Briefcase, CheckCircle2, Copy, Download, Loader2, Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { stats } from "@/lib/data";
 import { site } from "@/lib/site";
@@ -50,7 +50,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden px-5 py-28 md:px-10 md:py-40">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading index="07" eyebrow="Contact" title="Let's build something remarkable." gradientFrom={2} blurb="Have a product idea, an app to ship or a site to elevate? I'd love to hear about it." />
+        <SectionHeading index="09" eyebrow="Contact" title="Let's build something remarkable." gradientFrom={2} blurb="Have a product idea, an app to ship or a site to elevate? I'd love to hear about it." />
 
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
@@ -69,6 +69,17 @@ export function Contact() {
                 </span>
                 <Copy className="h-4 w-4 text-white/40 transition group-hover:text-neon" />
               </button>
+
+              <a href={site.cv} download="Hassan-Ali-Alvi-CV.pdf" className="glass beam group flex items-center gap-5 rounded-2xl p-6">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.06] text-white ring-1 ring-white/15">
+                  <Download className="h-6 w-6" />
+                </span>
+                <span className="flex-1">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">Résumé</span>
+                  <span className="mt-1 block font-display text-lg font-semibold text-white">Download CV (PDF)</span>
+                </span>
+                <ArrowUpRight className="h-5 w-5 text-white/40 transition group-hover:rotate-45 group-hover:text-neon" />
+              </a>
 
               <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }} className="glass beam group flex items-center gap-5 rounded-2xl p-6">
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.06] text-white ring-1 ring-white/15">

@@ -21,11 +21,11 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 const TERMINAL = [
   { k: "name", v: `"${site.name}"` },
   { k: "role", v: `"${site.role}"` },
-  { k: "builds", v: `["mobile apps", "tv apps", "web platforms", "ai systems"]` },
+  { k: "education", v: `"BS Data Science, GIKI"` },
+  { k: "builds", v: `["mobile apps", "tv apps", "web platforms", "ai & data"]` },
   { k: "platforms", v: `["Android", "iOS", "Android TV", "Apple TV"]` },
   { k: "projects", v: `${stats.projects}` },
   { k: "on_google_play", v: `${stats.play}` },
-  { k: "obsessed_with", v: `"craft, performance, details"` },
 ];
 
 function Terminal() {
@@ -73,7 +73,7 @@ export function About() {
   return (
     <section id="about" className="relative px-5 py-28 md:px-10 md:py-40">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading index="01" eyebrow="About" title="Engineer. Designer. Builder of whole products." gradientFrom={3} />
+        <SectionHeading index="01" eyebrow="About" title="Data scientist by degree, product builder by practice." gradientFrom={3} />
         <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6 text-lg leading-relaxed text-white/65">
             {site.bio.map((p, i) => (
@@ -83,7 +83,7 @@ export function About() {
             ))}
             <Reveal delay={0.3}>
               <div className="flex flex-wrap gap-2 pt-2">
-                {["Mobile", "TV", "Web", "AI / ML", "Data", "DevOps", "UI Design"].map((t) => (
+                {["Mobile", "Android TV", "Full-stack web", "AI / ML", "Data & BI", "SaaS", "Business software"].map((t) => (
                   <span key={t} className="rounded-full border border-white/12 bg-white/[0.03] px-4 py-1.5 font-mono text-xs text-white/70 transition hover:border-neon/60 hover:text-neon">
                     {t}
                   </span>

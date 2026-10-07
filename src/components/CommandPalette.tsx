@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, CornerDownLeft, Copy, Hash, Search } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { nav, site } from "@/lib/site";
+import { moreSections, nav, site } from "@/lib/site";
 import { toast } from "./Toaster";
 
 type Item = { id: string; label: string; hint: string; icon: "hash" | "link" | "copy"; run: () => void };
@@ -14,10 +14,11 @@ export function CommandPalette({ open, setOpen }: { open: boolean; setOpen: (v: 
 
   const items: Item[] = useMemo(
     () => [
-      ...nav.map((n) => ({
+      ...[...nav, ...moreSections].map((n) => ({
         id: n.id, label: `Go to ${n.label}`, hint: "section", icon: "hash" as const,
         run: () => document.getElementById(n.id)?.scrollIntoView({ behavior: "smooth" }),
       })),
+      { id: "cv", label: "Download CV", hint: "pdf", icon: "link", run: () => window.open(site.cv, "_blank") },
       { id: "gh", label: "Open GitHub profile", hint: "external", icon: "link", run: () => window.open(site.social.github, "_blank") },
       { id: "li", label: "Open LinkedIn profile", hint: "external", icon: "link", run: () => window.open(site.social.linkedin, "_blank") },
       { id: "fw", label: "Visit futurewatch.co", hint: "external", icon: "link", run: () => window.open(site.sites.futurewatch, "_blank") },

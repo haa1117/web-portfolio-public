@@ -1,39 +1,45 @@
 "use client";
 import { motion } from "framer-motion";
-import { BrainCircuit, Cloud, Layers, Server, Smartphone } from "lucide-react";
+import { BrainCircuit, Cloud, Code, Database, Globe, Smartphone } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 
 const GROUPS = [
   {
+    title: "Languages",
+    icon: Code,
+    color: "#22d3ee",
+    items: ["Python", "C", "C++", "Java", "JavaScript", "TypeScript", "Dart", "Kotlin", "Swift", "SQL", "HTML", "CSS", "PySpark", "OpenMP", "CUDA", "MPI"],
+  },
+  {
+    title: "Web",
+    icon: Globe,
+    color: "#a78bfa",
+    items: ["React", "Next.js", "Vite", "Tailwind CSS", "Framer Motion", "Node.js", "Express", "FastAPI", "Django"],
+  },
+  {
     title: "Mobile & TV",
     icon: Smartphone,
-    color: "#22d3ee",
-    items: ["Flutter", "Dart", "Swift", "SwiftUI", "tvOS", "Android TV", "React Native", "Expo", "App Store Connect", "Google Play Console"],
-  },
-  {
-    title: "Frontend & Design",
-    icon: Layers,
-    color: "#a78bfa",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite", "Figma", "Motion design", "Design systems"],
-  },
-  {
-    title: "Backend & Data",
-    icon: Server,
     color: "#f0abfc",
-    items: ["Node.js", "Express", "FastAPI", "Django", "PostgreSQL", "MongoDB", "Supabase", "Firebase", "BigQuery", "Kafka"],
+    items: ["Flutter", "Android", "Android TV", "SwiftUI", "Apple TV (tvOS)", "React Native", "Expo", "Google Play Billing", "AdMob", "Firebase Auth", "Firestore"],
   },
   {
     title: "AI & Machine Learning",
     icon: BrainCircuit,
     color: "#a3e635",
-    items: ["Python", "RAG", "Whisper", "spaCy", "scikit-learn", "CNNs", "Rasa", "Apache Spark", "Streamlit", "Plotly"],
+    items: ["TensorFlow", "PyTorch", "Keras", "SciPy", "scikit-learn", "Linear & Logistic Regression", "SVM", "Decision Trees", "Random Forest", "K-Means", "GMM", "K-NN", "PCA", "RAG", "spaCy"],
   },
   {
-    title: "Cloud & Delivery",
-    icon: Cloud,
+    title: "Data",
+    icon: Database,
     color: "#fbbf24",
-    items: ["Docker", "Nginx", "Cloudflare", "Netlify", "GitHub Actions", "AdMob", "Unity Ads", "Analytics pipelines"],
+    items: ["SQL", "NoSQL", "MongoDB", "PostgreSQL", "SQLite", "Power BI", "Tableau", "PySpark", "Pandas", "Plotly", "Streamlit"],
+  },
+  {
+    title: "Cloud & Tools",
+    icon: Cloud,
+    color: "#fb7185",
+    items: ["Git", "Docker", "Google Cloud Platform", "AWS", "Firebase", "Supabase", "Cloudflare", "Netlify", "Jira", "Jupyter", "VS Code"],
   },
 ];
 
@@ -42,14 +48,14 @@ export function Skills() {
     <section id="skills" className="relative px-5 py-28 md:px-10 md:py-40">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="06"
+          index="07"
           eyebrow="Skills"
-          title="A full-stack toolkit, from pixels to pipelines."
+          title="Languages, frameworks and tools."
           gradientFrom={3}
         />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {GROUPS.map((g, gi) => (
-            <Reveal key={g.title} delay={gi * 0.07} className={gi === GROUPS.length - 1 ? "lg:col-span-2" : ""}>
+            <Reveal key={g.title} delay={gi * 0.07}>
               <TiltCard max={5} glow={`${g.color}30`} className="glass beam h-full rounded-3xl p-7">
                 <div className="relative z-10">
                   <div className="mb-6 flex items-center gap-4">

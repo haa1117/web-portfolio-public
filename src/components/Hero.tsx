@@ -1,6 +1,6 @@
 "use client";
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Briefcase, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Briefcase, Download, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 import { site } from "@/lib/site";
@@ -148,6 +148,15 @@ function HeroInner({ delay }: { delay: number }) {
                 <Briefcase className="h-4 w-4" /> All projects
               </a>
             </Magnetic>
+            <Magnetic>
+              <a
+                href={site.cv}
+                download="Hassan-Ali-Alvi-CV.pdf"
+                className="flex items-center gap-2.5 rounded-full border border-neon/40 bg-neon/[0.08] px-7 py-4 text-sm font-semibold text-neon transition hover:border-neon hover:bg-neon/15"
+              >
+                <Download className="h-4 w-4" /> Download CV
+              </a>
+            </Magnetic>
           </motion.div>
 
           <motion.div
@@ -212,7 +221,8 @@ function HeroInner({ delay }: { delay: number }) {
                 <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon shadow-[0_0_16px_#22d3ee]" />
               </div>
               <div className="absolute inset-[7px] overflow-hidden rounded-full ring-1 ring-white/20">
-                <div role="img" aria-label={site.name} className="flex h-full w-full items-center justify-center bg-gradient-to-br from-neon/25 via-violet/25 to-magenta/25 font-display text-[clamp(3rem,9cqw,5.5rem)] font-bold tracking-tight text-white">{site.initials}</div>
+                <div className="absolute inset-0 bg-gradient-to-br from-neon/20 via-violet/20 to-magenta/20" />
+                <Image src="/hassan.webp" alt={site.name} fill priority sizes="260px" className="object-cover object-[50%_28%]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-void/40 via-transparent to-neon/10 mix-blend-overlay" />
               </div>
             </div>

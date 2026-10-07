@@ -7,13 +7,13 @@ const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jb", display: "swap" });
 
-const description = `${site.name} — ${site.role}. Products across mobile, TV, web, AI/data and business systems: apps on Google Play, live web platforms and full-stack software.`;
+const description = `${site.name} — Full-Stack Software Developer and BS Data Science graduate (GIKI). Android and Android TV apps, full-stack web, AI/ML and business software, with apps live on Google Play.`;
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.role}`,
   description,
   authors: [{ name: site.name }],
-  keywords: ["Hassan Ali Alvi", "portfolio", "full-stack developer", "mobile app developer", "Flutter", "React", "Next.js", "Android TV", "AI engineer"],
+  keywords: ["Hassan Ali Alvi", "portfolio", "full-stack developer", "mobile app developer", "Android developer", "Flutter", "React", "Next.js", "Android TV", "data science", "machine learning", "GIKI"],
   openGraph: { title: `${site.name} — ${site.role}`, description, type: "website", siteName: `${site.name} Portfolio` },
   twitter: { card: "summary_large_image", title: `${site.name} — ${site.role}`, description },
 };

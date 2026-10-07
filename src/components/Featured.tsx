@@ -156,7 +156,7 @@ export function Featured() {
     <section id="featured" className="relative px-5 py-28 md:px-10 md:py-40">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="Featured work"
           title="Five projects, built end to end."
           gradientFrom={2}

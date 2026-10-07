@@ -164,7 +164,7 @@ export function Projects() {
     <section id="projects" className="relative px-5 py-28 md:px-10 md:py-40">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="04"
+          index="05"
           eyebrow="Project library"
           title={`${library.length} more projects, organised.`}
           gradientFrom={2}

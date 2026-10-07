@@ -10,6 +10,8 @@ import { Footer } from "./Footer";
 import { Hero } from "./Hero";
 import { Marquee } from "./Marquee";
 import { Nav } from "./Nav";
+import { Education } from "./Education";
+import { ExperienceSection } from "./Experience";
 import { Featured } from "./Featured";
 import { Projects } from "./Projects";
 import { Services } from "./Services";
@@ -36,12 +38,14 @@ export function Shell() {
         <Hero />
         <Marquee />
         <About />
+        <ExperienceSection />
         <Featured />
         <Services />
         <Marquee reverse />
         <Projects />
         <Websites />
         <Skills />
+        <Education />
         <Contact />
       </main>
       <div className="relative z-10">

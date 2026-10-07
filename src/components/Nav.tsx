@@ -1,6 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Command, Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
 import { useBootDelay } from "@/hooks/useBootDelay";
@@ -61,7 +62,9 @@ export function Nav({ onPalette }: { onPalette: () => void }) {
         >
           <a href="#home" onClick={(e) => { e.preventDefault(); go("home"); }} className="mr-2 flex items-center gap-2 pr-2" aria-label="Home">
             <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-neon/30 to-violet/30 font-display text-xs font-bold text-white ring-1 ring-white/15">
-              {site.initials}
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <Image src="/hassan.webp" alt={site.name} width={64} height={64} className="h-full w-full scale-[1.7] object-cover object-[50%_22%]" />
+              </span>
               <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-lime shadow-[0_0_8px_#a3e635]" />
             </span>
           </a>
@@ -118,7 +121,7 @@ export function Nav({ onPalette }: { onPalette: () => void }) {
               {nav.map((n, i) => (
                 <motion.li key={n.id} initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + i * 0.05 }}>
                   <button onClick={() => go(n.id)} className="flex w-full items-baseline gap-4 py-2 text-left font-display text-4xl font-bold text-white [@media(max-height:560px)]:py-1 [@media(max-height:560px)]:text-2xl">
-                    <span className="font-mono text-xs text-neon">0{i + 1}</span>
+                    <span className="font-mono text-xs text-neon">{String(i + 1).padStart(2, "0")}</span>
                     {n.label}
                   </button>
                 </motion.li>
