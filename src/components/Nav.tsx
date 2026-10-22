@@ -63,7 +63,7 @@ export function Nav({ onPalette }: { onPalette: () => void }) {
           <a href="#home" onClick={(e) => { e.preventDefault(); go("home"); }} className="mr-2 flex items-center gap-2 pr-2" aria-label="Home">
             <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-neon/30 to-violet/30 font-display text-xs font-bold text-white ring-1 ring-white/15">
               <span className="absolute inset-0 overflow-hidden rounded-full">
-                <Image src="/hassan.webp" alt={site.name} width={64} height={64} className="h-full w-full scale-[1.7] object-cover object-[50%_22%]" />
+                <Image src="/hassan.webp" alt={site.name} width={64} height={64} className="h-full w-full origin-[50%_25%] scale-[1.5] object-cover object-[50%_22%]" />
               </span>
               <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-lime shadow-[0_0_8px_#a3e635]" />
             </span>
